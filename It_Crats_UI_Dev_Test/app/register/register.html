@@ -1,0 +1,41 @@
+
+<div class="container">
+  <h2>Signup Form</h2>
+  
+    <form name="signuipFrm" ng-submit="submitForm(signuipFrm.$valid)" novalidate ng-controller="registerCtrl">
+    <div class="form-group" >
+    <label id="label" class="control-label">First Name:</label>
+    <input type="text" class="form-control" name="firstName" ng-model="firstName" placeholder="Enter First Name" autocomplete="off" required ng-pattern="name" maxlength="60"/>
+    <span class="error" ng-show="signuipFrm.firstName.$dirty && signuipFrm.firstName.$invalid && signuipFrm.firstName.$error.pattern">Please Enter Characters Only</span>
+    </div>
+
+    <div class="form-group" >
+      <label id="label" class="control-label">Last Name:</label>
+      <input type="text" class="form-control" name="lastName" ng-model="lastName" placeholder="Enter Last Name" autocomplete="off" required ng-pattern="name" maxlength="60"/>
+    <span class="error" ng-show="signuipFrm.lastName.$dirty && signuipFrm.lastName.$invalid && signuipFrm.lastName.$error.pattern">Please Enter Characters Only</span>
+      </div>
+  
+    <div class="form-group">
+    <label id="label" class="control-label">Email:</label>
+    <input type="email" class="form-control" ng-model="email" name="email" placeholder="Enter Email Address" autocomplete="off" required />
+    <span class="msg" ng-show="signuipFrm.email.$dirty && signuipFrm.email.$invalid">Email Address is not valid</span>
+    </div>
+    <div class="form-group" >
+      <label id="label" class="control-label">Phone:</label>
+      <input type="text" ng-pattern="phoneNumbr" class="form-control" name="phone" ng-model="phone" placeholder="Enter Phone" autocomplete="off" required  />
+      <span class="error" ng-show="signuipFrm.phone.$dirty && signuipFrm.phone.$invalid && signuipFrm.phone.$error.pattern">Please match pattern [+91 97 637 9899]</span>
+    </div>
+    
+    <div class="form-group">
+    <label id="label" class="control-label">Password:</label>
+    <input type="password" class="form-control" ng-model="pass" name="pass" placeholder="Enter Password" autocomplete="off" ng-minlength="5" ng-maxlength="12" required>
+    <span class="msg" ng-show="signuipFrm.pass.$dirty && signuipFrm.pass.$error.minlength">password must contain atleast 5 charecters</span>
+    <span class="msg" ng-show="signuipFrm.pass.$dirty && signuipFrm.pass.$error.maxlength">max-length of password reached</span>
+    </div>
+
+    <div class="form-group">
+        
+    <input ng-disabled="signuipFrm.$invalid" class="btn btn-warning" type="submit"  value="Submit">
+    </div>
+    </form>
+</div>
